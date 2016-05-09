@@ -5,7 +5,9 @@ import controller.GameController;
  */
 public class Main {
 
+    static final int GAME_SIZE = 20;
+
     public static void main(String[] args) {
-        new GameController(20);
+        new GameController(GAME_SIZE);
     }
 }

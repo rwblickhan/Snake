@@ -147,13 +147,12 @@ public class GameModel {
 
     //helper method for testing createNewFood()
     public void testCreateNewFoodHelper() {
-        for (int i = 0; i < body.size(); i++) {
-            body.get(i).clear();
+        for (Location loc : body) {
+            loc.clear();
         }
         food.clear();
         createNewFood();
     }
-
 
     //returns true iff the game is over
     //returns false otherwise

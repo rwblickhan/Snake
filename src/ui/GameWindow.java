@@ -24,7 +24,7 @@ public class GameWindow extends JFrame {
 
         createMenus();
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
         repaint();
         setFocusable(true);
@@ -34,11 +34,12 @@ public class GameWindow extends JFrame {
 
     }
 
+    //creates menu bar and reset button
     private void createMenus() {
         JMenuBar menuBar = new JMenuBar();
         JMenu drawingMenu = new JMenu("Snake");
 
-        JMenuItem resetGame = new JMenuItem("Reset");
+        JMenuItem resetGame = new JMenuItem("Reset (r)");
         resetGame.addActionListener(new ResetGameAction());
         drawingMenu.add(resetGame);
 
@@ -46,6 +47,8 @@ public class GameWindow extends JFrame {
         setJMenuBar(menuBar);
     }
 
+    //when reset button in menu is pressed, sends message to resetDelegate
+    //which should reset the model and UI
     private class ResetGameAction extends AbstractAction {
 
         @Override
@@ -55,6 +58,8 @@ public class GameWindow extends JFrame {
 
     }
 
+    //when arrow keys are pressed, sends message to keyDelegate
+    //which should change the direction in the model
     private class KeyboardController implements KeyListener {
 
         @Override
@@ -71,6 +76,9 @@ public class GameWindow extends JFrame {
                     break;
                 case KeyEvent.VK_LEFT:
                     keyDelegate.changeDir(Direction.LEFT);
+                    break;
+                case KeyEvent.VK_R:
+                    resetDelegate.reset();
                     break;
             }
         }

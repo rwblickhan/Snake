@@ -11,17 +11,18 @@ public class GridPanel extends JPanel {
     public static final int GRID_HEIGHT = 25;
     public static final int GRID_WIDTH  = 25;
 
-    Color currentColor;
+    Color currentColor = Color.lightGray;
 
     public GridPanel() {
         setPreferredSize(new Dimension(GRID_WIDTH, GRID_HEIGHT));
-        currentColor = Color.lightGray;
     }
 
+    //sets the color of the oval that will be drawn when the GridPanel is repainted
     public void setCurrentColor(Color color) {
         currentColor = color;
     }
 
+    //paints a small oval with currentColor inside the GridPanel
     @Override
     public void paint(Graphics g) {
         super.paint(g);

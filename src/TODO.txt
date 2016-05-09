@@ -1,0 +1,10 @@
+TODO.txt
+
+*optimize GameController.clearMainPanel() so that it only messages those panels that need to change
+*fix bug where snake dies by stopping
+*add a scoreboard
+*add a start screen so it doesn't start running immediately on launch
+*add different difficulty levels (possibly by changing the speed of the snake?)
+*add poison pellets
+*other gamemodes
+*multiplayer?

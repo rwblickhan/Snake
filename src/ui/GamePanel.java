@@ -16,6 +16,9 @@ public class GamePanel extends JPanel {
         this.gameOverDelegate = gameOverDelegate;
     }
 
+
+    //if game is over, presents game over screen
+    //otherwise paints normally
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -23,15 +26,16 @@ public class GamePanel extends JPanel {
         if (gameOverDelegate.isGameOver()) {
             Color saved = g.getColor();
             g.setColor(Color.RED);
-            g.setFont(new Font("Arial Bold", 20, 20));
+            g.setFont(new Font("Arial Bold", Font.PLAIN, 20));
             FontMetrics fm = g.getFontMetrics();
-            centreString("GAME OVER!", g, fm, getHeight() / 2);
-            centreString("RESET THE GAME TO REPLAY.", g, fm, getHeight() / 2 + 50);
+            centerString("GAME OVER!", g, fm, getHeight() / 2);
+            centerString("RESET THE GAME TO REPLAY.", g, fm, getHeight() / 2 + 50);
             g.setColor(saved);
         }
     }
 
-    private void centreString(String str, Graphics g, FontMetrics fm, int yPos) {
+    //helper method to create a centered string for game over screen
+    private void centerString(String str, Graphics g, FontMetrics fm, int yPos) {
         int width = fm.stringWidth(str);
         g.drawString(str, (getWidth() - width) / 2, yPos);
     }
